@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>会员充值</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<div class="header"><a href="index.html">←</a><h2>会员充值</h2></div>
+<div class="grid3">
+<div class="card"><h3>基础会员</h3><p>¥39/月</p><button onclick="pay(39)">立即开通</button></div>
+<div class="card premium"><h3>专业会员</h3><p>¥299/年</p><button onclick="pay(299)">立即开通</button></div>
+<div class="card"><h3>终身会员</h3><p>¥999</p><button onclick="pay(999)">立即开通</button></div>
+</div>
+</div>
+<script>
+function pay(price){alert('模拟支付：¥'+price)}
+</script>
+</body>
+</html>
