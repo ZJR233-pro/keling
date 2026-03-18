@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI生成视频</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<div class="header">
+<a href="index.html">←</a>
+<h2>AI 生成视频</h2>
+</div>
+
+<div class="grid2">
+<div class="left">
+<div class="card">
+<h3>视频描述</h3>
+<textarea id="prompt">电影感，动态，运镜，4K，流畅</textarea>
+<button id="gen" class="fullbtn">🎥 生成视频</button>
+</div>
+</div>
+<div class="right">
+<div class="card">
+<h3>视频结果</h3>
+<div id="result"></div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+document.getElementById('gen').onclick = async () => {
+  const btn = document.getElementById('gen');
+  btn.innerText = "生成中...";
+  btn.disabled = true;
+  const res = await fetch("/api/video", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ prompt: document.getElementById('prompt').value })
+  });
+  const data = await res.json();
+  btn.innerText = "🎥 生成视频";
+  btn.disabled = false;
+  if (data.video) {
+    document.getElementById('result').innerHTML = `<video controls src="${data.video}"></video>`;
+  } else {
+    alert(data.error || "视频生成失败");
+  }
+};
+</script>
+</body>
+</html>
