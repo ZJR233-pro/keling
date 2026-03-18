@@ -19,8 +19,14 @@ body{background:#f7f8fa;color:#222}
 .style{padding:10px 12px;background:#f0e7ff;border-radius:8px}
 .style.active{background:#7c3aed;color:#fff}
 textarea{width:100%;height:180px;border-radius:12px;padding:15px;border:1px solid #ddd}
-.fullbtn{width:100%;padding:16px;background:#7c3aed;color:#fff;border:none;border-radius:12px;font-weight:bold}
+.fullbtn{width:100%;padding:16px;background:#7c3aed;color:#fff;border:none;border-radius:12px;font-weight:bold;margin-top:10px}
 .canvas-wrap{width:100%;height:550px;background:#fff;border-radius:16px;overflow:hidden}
 #canvas{width:100%;height:100%}
 .tools{display:flex;gap:10px;margin-top:15px}
 .tools button{padding:10px 14px;background:#7c3aed;color:#fff;border:none;border-radius:8px}
+.premium{border:2px solid #7c3aed}
+.login-page{height:100vh;display:flex;align-items:center;justify-content:center}
+.login-box{background:#fff;padding:30px;border-radius:16px;width:90%;max-width:400px}
+.login-box input{width:100%;padding:14px;margin:10px 0;border-radius:12px;border:1px solid #eee}
+.login-box button{width:100%;padding:14px;background:#7c3aed;color:#fff;border:none;border-radius:12px;margin-top:10px}
+img,video{max-width:100%;border-radius:12px;margin-top:10px}
