@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>个人中心</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<div class="header"><a href="index.html">←</a><h2>个人中心</h2></div>
+<div class="card">
+<p>账号：demo@ai.com</p>
+<p>会员：未开通</p>
+<p>剩余次数：10次</p>
+<button onclick="logout()" class="fullbtn">退出登录</button>
+</div>
+<div class="card">
+<h3>历史作品</h3>
+<img src="https://picsum.photos/400/225">
+</div>
+</div>
+<script>
+function logout(){localStorage.clear();location.href='login.html'}
+</script>
+</body>
+</html>
