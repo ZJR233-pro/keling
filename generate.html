@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI生成 - 图片</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<div class="header">
+<a href="index.html">← 返回</a>
+<h2>AI 生成图片</h2>
+</div>
+
+<div class="grid2">
+<div class="left">
+<div class="card">
+<h3>风格选择</h3>
+<div class="styles">
+<div class="style active">情绪电影风</div>
+<div class="style">硬核时空风</div>
+<div class="style">东方仪式风</div>
+<div class="style">现实寓言风</div>
+<div class="style">复古爽片风</div>
+<div class="style">治愈生活风</div>
+<div class="style">对称哲学风</div>
+<div class="style">都市文艺风</div>
+<div class="style">冷峻悬疑风</div>
+<div class="style">童话治愈风</div>
+</div>
+</div>
+
+<div class="card">
+<h3>画面描述</h3>
+<textarea id="prompt" placeholder="输入提示词...">女孩，雨夜，街道，情绪电影风，电影光影，4K高清</textarea>
+</div>
+
+<div class="card">
+<button id="go" class="fullbtn">🚀 立即生成（NanoBoNano）</button>
+</div>
+</div>
+
+<div class="right">
+<div class="card">
+<h3>生成结果</h3>
+<div id="result"></div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+const go = document.getElementById('go');
+go.onclick = async () => {
+  const prompt = document.getElementById('prompt').value;
+  go.innerText = "生成中...";
+  go.disabled = true;
+  const res = await fetch("/api/generate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ prompt })
+  });
+  const data = await res.json();
+  go.innerText = "🚀 立即生成";
+  go.disabled = false;
+  if (data.image) {
+    document.getElementById('result').innerHTML = `<img src="${data.image}">`;
+  } else {
+    alert(data.error || "生成失败");
+  }
+};
+</script>
+</body>
+</html>
